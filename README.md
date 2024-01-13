@@ -2,8 +2,11 @@
 
 -create react app
 -configured tailwinds css
+-Routing of App
 -Header
 -Login Form
+-Form validation
+-useRef Hook
 
 
 #Features
@@ -22,5 +25,8 @@
 -NextflixGpt
     -search Bar
     - Movie suggestions 
+
+     
+
 
      
