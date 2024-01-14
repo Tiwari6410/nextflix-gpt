@@ -53,7 +53,6 @@ const Login = () => {
         </div>
         <div className="signup-text mt-12 flex gap-2">
           <p className='text-[16px] text-gray-300 cursor-pointer'>New to Netflix? <span className='font-bold text-lg' onClick={toggleChange}>Sign Up now</span></p>
-          {/* <p className='text-xl font-bold items-center'><link rel="stylesheet" href="#" /> Sign Up now</p> */}
         </div>
         
     </form>
