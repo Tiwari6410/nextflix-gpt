@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header.js'
-import checkValidate from './Validate.js'
+import checkValidate from '../utils/Validate.js'
 
 const Login = () => {
 
@@ -16,10 +16,12 @@ const Login = () => {
       const name  = useRef(null)
 
     const HandleSignUp=()=>{
-
-     const message =  checkValidate(email.current.value,password.current.value,name.current.value)
-      // console.log(email.current.value)
-      // console.log(password.current.value)
+      //validate the form data
+     const message =  checkValidate(name.current.value, email.current.value, password.current.value)
+     console.log(name.current.value)
+     console.log(email.current.value)
+      console.log(password.current.value)
+      
       setErrorMsg(message)
       console.log(ErrorMsg)
 
@@ -35,24 +37,25 @@ const Login = () => {
         <div className='absolute text-white z-20 h-full w-full '>
    <form onSubmit={(e)=>e.preventDefault()} className='w-[450px] bg-black  mx-auto my-[150px] p-10 px-16 rounded-xl bg-opacity-80 '>
         <h1 className='font-semibold text-2xl my-4'>{(!isSignInForm) ? "Sign Up" :"Sign In"}</h1>
-          {
+         <div>
+         {
             (!isSignInForm) && <input ref={name} className='w-full p-2 mb-2 text-white rounded-sm bg-gray-700' type='text' placeholder='Full Name'/> 
           }
-
+         </div>
         <input ref={email} className='w-full p-2 mb-2 text-white rounded-sm bg-gray-700' type='text' placeholder='Email Address'/>
         <input ref={password} className='w-full p-2 mb-2 text-white rounded-sm bg-gray-700' type='password' placeholder='Password'/>
-        <div className='w-full p-2 mb-10'>
+        <p className='w-full p-2 mb-5'>
           {
             ErrorMsg
           }
-        </div>
+        </p>
         <button onClick={HandleSignUp}  className=' p-2  w-full mb-1  bg-red-700 border-none text-white border border-spacing-2'> {!isSignInForm? "Sign Up" :"Sign In" }</button>
-        <div className='flex gap-[100px]'>
+        {/* <div className='flex gap-[100px]'>
           <div><input type="checkbox" id='bottombox'/><label htmlFor="bottombox" className='text-gray-200'> Remember me</label></div>
           <p>Need help?</p>
-        </div>
+        </div> */}
         <div className="signup-text mt-12 flex gap-2">
-          <p className='text-[16px] text-gray-300 cursor-pointer'>New to Netflix? <span className='font-bold text-lg' onClick={toggleChange}>Sign Up now</span></p>
+          <p className='text-[16px] text-gray-300 cursor-pointer'> <span className='font-bold text-lg' onClick={toggleChange}>{isSignInForm ? "New to Netflix ? Sign Up Now" : "Already register ? Sign In Now."}</span></p>
         </div>
         
     </form>
